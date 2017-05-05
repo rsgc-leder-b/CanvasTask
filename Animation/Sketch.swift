@@ -37,9 +37,11 @@ class Sketch : NSObject {
         
         // Set up a Koch snowflake
         kochSnowflake = LindenmayerSystem(angle: 60,
-                                          axiom: "F++F++F",
+                                          axiom: "F2++F1++F",
                                           rule: "F-F++F-F",
-                                          generations: 5)
+                                          generations: 5,
+                                          colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
+                                                   "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
         
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
@@ -53,8 +55,8 @@ class Sketch : NSObject {
         mediumKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
                                                           length: 270,
                                                           reduction: 3,
-                                                          x: 250,
-                                                          y: 300,
+                                                          x: 150,
+                                                          y: 200,
                                                           direction: 0)
         
         
@@ -62,7 +64,9 @@ class Sketch : NSObject {
         kochIsland = LindenmayerSystem(angle: 90,
                                        axiom: "F-F-F-F",
                                        rule: "F-F+F+FF-F-F+F",
-                                       generations: 5)
+                                       generations: 5,
+                                       colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
+                                                "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
         
         // Visualize the Koch Island
         largeKochIsland = VisualizedLindenmayerSystem(with: kochIsland,
@@ -76,7 +80,9 @@ class Sketch : NSObject {
         kochSwirl = LindenmayerSystem(angle: 90,
                                       axiom: "-F",
                                       rule: "F+F-F-F+F",
-                                      generations: 4)
+                                      generations: 4,
+                                      colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
+                                               "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
         
         // Visualize the Koch Swirl
         mediumKochSwirl = VisualizedLindenmayerSystem(with: kochSwirl,
@@ -90,7 +96,9 @@ class Sketch : NSObject {
         kochConstruction = LindenmayerSystem(angle: 90,
                                              axiom: "F-F-F-F",
                                              rule: "FF-F-F-F-F-F+F",
-                                             generations: 3)
+                                             generations: 3,
+                                             colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
+                                                      "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
         
         // Visualize this other Koch construction
         mediumConstruction = VisualizedLindenmayerSystem(with: kochConstruction,
@@ -109,7 +117,7 @@ class Sketch : NSObject {
     func draw() {
         
         // Render the current system
-        canvas.renderAnimated(system: mediumConstruction, generation: 2)
+        canvas.renderAnimated(system: mediumKochSnowflake, generation: 3)
         
     }
     
