@@ -17,6 +17,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     var direction : Int                     // initial direction turtle faces (degrees)
     var currentLength : Float               // current line segment length
     var animationPosition = 0               // tracks current character being interpreted when system is animated
+    var colorList : [String : LindenmayerSystem.Colour]
     
     public init(with providedSystem: LindenmayerSystem,
                 length: Float,

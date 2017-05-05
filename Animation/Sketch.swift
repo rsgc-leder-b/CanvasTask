@@ -38,10 +38,10 @@ class Sketch : NSObject {
         // Set up a Koch snowflake
         kochSnowflake = LindenmayerSystem(angle: 60,
                                           axiom: "F2++F1++F",
-                                          rule: "F-F++F-F",
+                                          rule: "F1-F2++F1-F2",
                                           generations: 5,
                                           colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
-                                                   "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
+                                                   "2" : LindenmayerSystem.Colour(h: 200, s: 100, b: 100)])
         
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,

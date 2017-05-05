@@ -68,6 +68,8 @@ public class EnhancedCanvas : Canvas {
 	
 	func interpret(character : Character, forThis system : VisualizedLindenmayerSystem) {
 		// Interpret each character of the word
+		
+		// MARK: Switch
 		switch character {
 		case "F":
 			// Go forward while drawing a line
@@ -82,24 +84,14 @@ public class EnhancedCanvas : Canvas {
 		case "-":
 			// Turn right
 			self.rotate(by: system.angle * -1)
-		case "1":
-			if let currColour = system.colorList["1"] {
-				print("Colorchange")
-				self.lineColor = Color(hue: currColour.hue, saturation: currColour.saturation, brightness: currColour.brightness, alpha: 100)
-			}
-		case "2":
-			if let currColour = system.colorList["2"] {
-				self.lineColor = Color(hue: currColour.hue, saturation: currColour.saturation, brightness: currColour.brightness, alpha: 100)
-			}
-		case "3":
-			if let currColour = system.colorList["3"] {
-				self.lineColor = Color(hue: currColour.hue, saturation: currColour.saturation, brightness: currColour.brightness, alpha: 100)
-			}
 		default:
-			// Do nothing for any another character in the word
+			let unicodeValue = String(character).unicodeScalars[String(character).unicodeScalars.startIndex].value
+			if unicodeValue > 47 && unicodeValue < 58 {
+				if let currColour = system.colorList[String(character)] {
+					self.lineColor = Color(hue: currColour.hue, saturation: currColour.saturation, brightness: currColour.brightness, alpha: 100)
+				}
+			}
 			break
 		}
-		
 	}
-	
 }
