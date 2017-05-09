@@ -24,7 +24,8 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
                 reduction: Float,
                 x: Int,
                 y: Int,
-                direction: Int) {
+                direction: Int,
+                colors: [String: Colour]) {
         
         // Initialize stored properties
         self.initialLength = length
@@ -33,7 +34,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
         self.y = y
         self.direction = direction
         self.currentLength = self.initialLength
-        self.colorList = providedSystem.colors
+        self.colorList = colors
         super.init(with: providedSystem)
     }
     

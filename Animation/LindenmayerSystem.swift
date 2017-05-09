@@ -4,12 +4,11 @@ public class LindenmayerSystem {
 	// Set up required information
 	var angle : Degrees                 // rotation amount for turtle (degrees)
 	var axiom : String
-	var rule : String
 	var n : Int                         // number of times the production rule is applied
 	var word : [String] = []            // the word that will be rendered
 	// is rendered with an animation, step by step
-	var colors : [String : Colour] = [:]
 	var rules : [String : String] = [:]
+	var stochastic = false
 	
 	public struct Colour {
 		var hue : Float
@@ -25,20 +24,20 @@ public class LindenmayerSystem {
 	
 	public init(angle : Degrees,
 	            axiom : String,
-	            rule : String,
 	            generations : Int,
-	            colors : [String : Colour],
 	            rules : [String : String]) {
 		
 		// Initialize stored properties
 		self.angle = angle
 		self.axiom = axiom
-		self.rule = rule
 		self.n = generations
-		self.colors = colors
 		self.rules = rules
 		self.word.append(axiom)   // The first word is the axiom
-		
+		for rule in rules {
+			if rule.value[rule.value.index(rule.value.startIndex, offsetBy: 1)] == "/" {
+				stochastic = true
+			}
+		}
 		// Apply the production rule
 		applyRules()
 		
@@ -49,7 +48,6 @@ public class LindenmayerSystem {
 		// Initalize stored properties
 		self.angle = system.angle
 		self.axiom = system.axiom
-		self.rule = system.rule
 		self.n = system.n
 		self.rules = system.rules
 		self.word.append(axiom)   // The first word is the axiom

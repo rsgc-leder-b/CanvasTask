@@ -37,12 +37,9 @@ class Sketch : NSObject {
         
         // Set up a Koch snowflake
         kochSnowflake = LindenmayerSystem(angle: 60,
-                                          axiom: "F2++F1++F",
-                                          rule: "F1-F2++F1-F2",
+                                          axiom: "F++F++F",
                                           generations: 3,
-                                          colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
-                                                   "2" : LindenmayerSystem.Colour(h: 200, s: 100, b: 100)],
-                                          rules: ["F" : "F1-F2++F1-F2"])
+                                          rules: ["F" : "1F-2F++3F-4F"])
         
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
@@ -50,7 +47,11 @@ class Sketch : NSObject {
                                                          reduction: 3,
                                                          x: 120,
                                                          y: 175,
-                                                         direction: 0)
+                                                         direction: 0,
+                                                         colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100),
+                                                                  "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 100),
+                                                                  "3" : LindenmayerSystem.Colour(h: 170, s: 100, b: 100),
+                                                                  "4" : LindenmayerSystem.Colour(h: 230, s: 100, b: 100)])
         
         // Visualize this as a small snowflake
         mediumKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
@@ -58,7 +59,11 @@ class Sketch : NSObject {
                                                           reduction: 3,
                                                           x: 150,
                                                           y: 200,
-                                                          direction: 0)
+                                                          direction: 0,
+                                                          colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100),
+                                                                   "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 100),
+                                                                   "3" : LindenmayerSystem.Colour(h: 170, s: 100, b: 100),
+                                                                   "4" : LindenmayerSystem.Colour(h: 230, s: 100, b: 100)])
         
         /*
         // Set up a Koch Island
@@ -121,7 +126,7 @@ class Sketch : NSObject {
     func draw() {
         
         // Render the current system
-        canvas.renderAnimated(system: mediumKochSnowflake, generation: 3)
+        canvas.renderAnimated(system: mediumKochSnowflake, generation: 2)
         
     }
     
