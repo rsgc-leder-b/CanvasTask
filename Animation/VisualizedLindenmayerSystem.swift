@@ -34,9 +34,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
         self.direction = direction
         self.currentLength = self.initialLength
         self.colorList = providedSystem.colors
-        
         super.init(with: providedSystem)
-        
     }
     
 

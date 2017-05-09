@@ -16,18 +16,18 @@ class Sketch : NSObject {
     
     // Create the basic L-systems
     let kochSnowflake : LindenmayerSystem
-    let kochIsland : LindenmayerSystem
-    let kochSwirl : LindenmayerSystem
-    let kochConstruction : LindenmayerSystem
+//    let kochIsland : LindenmayerSystem
+//    let kochSwirl : LindenmayerSystem
+//    let kochConstruction : LindenmayerSystem
     
     // Create the visualizations of the snowflake
     let smallKochSnowflake : VisualizedLindenmayerSystem
     let mediumKochSnowflake : VisualizedLindenmayerSystem
     
     // Create visualizations of other systems
-    let largeKochIsland : VisualizedLindenmayerSystem
-    let mediumKochSwirl : VisualizedLindenmayerSystem
-    let mediumConstruction : VisualizedLindenmayerSystem
+//    let largeKochIsland : VisualizedLindenmayerSystem
+//    let mediumKochSwirl : VisualizedLindenmayerSystem
+//    let mediumConstruction : VisualizedLindenmayerSystem
     
     // This runs once, equivalent to setup() in Processing
     override init() {
@@ -39,9 +39,10 @@ class Sketch : NSObject {
         kochSnowflake = LindenmayerSystem(angle: 60,
                                           axiom: "F2++F1++F",
                                           rule: "F1-F2++F1-F2",
-                                          generations: 5,
+                                          generations: 3,
                                           colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
-                                                   "2" : LindenmayerSystem.Colour(h: 200, s: 100, b: 100)])
+                                                   "2" : LindenmayerSystem.Colour(h: 200, s: 100, b: 100)],
+                                          rules: ["F" : "F1-F2++F1-F2"])
         
         // Visualize this as a small snowflake
         smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
@@ -59,14 +60,15 @@ class Sketch : NSObject {
                                                           y: 200,
                                                           direction: 0)
         
-        
+        /*
         // Set up a Koch Island
         kochIsland = LindenmayerSystem(angle: 90,
                                        axiom: "F-F-F-F",
                                        rule: "F-F+F+FF-F-F+F",
                                        generations: 5,
                                        colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
-                                                "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
+                                                "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)],
+                                       rules: ["F" : "F-F+F+FF-F-F+F"])
         
         // Visualize the Koch Island
         largeKochIsland = VisualizedLindenmayerSystem(with: kochIsland,
@@ -82,7 +84,8 @@ class Sketch : NSObject {
                                       rule: "F+F-F-F+F",
                                       generations: 4,
                                       colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
-                                               "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
+                                               "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)],
+                                      rules: ["F" : "F+F-F-F+F"])
         
         // Visualize the Koch Swirl
         mediumKochSwirl = VisualizedLindenmayerSystem(with: kochSwirl,
@@ -98,7 +101,8 @@ class Sketch : NSObject {
                                              rule: "FF-F-F-F-F-F+F",
                                              generations: 3,
                                              colors: ["1" : LindenmayerSystem.Colour(h: 100, s: 100, b: 100),
-                                                      "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)])
+                                                      "2" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100)],
+                                             rules: ["F" : "FF-F-F-F-F-F+F"])
         
         // Visualize this other Koch construction
         mediumConstruction = VisualizedLindenmayerSystem(with: kochConstruction,
@@ -107,7 +111,7 @@ class Sketch : NSObject {
                                                          x: 250,
                                                          y: 350,
                                                          direction: 0)
-        
+        */
         // The frame rate can be adjusted; the default is 60 fps
         canvas.framesPerSecond = 60
         

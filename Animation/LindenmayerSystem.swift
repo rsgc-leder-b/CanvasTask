@@ -9,6 +9,7 @@ public class LindenmayerSystem {
 	var word : [String] = []            // the word that will be rendered
 	// is rendered with an animation, step by step
 	var colors : [String : Colour] = [:]
+	var rules : [String : String] = [:]
 	
 	public struct Colour {
 		var hue : Float
@@ -26,7 +27,8 @@ public class LindenmayerSystem {
 	            axiom : String,
 	            rule : String,
 	            generations : Int,
-	            colors : [String : Colour]) {
+	            colors : [String : Colour],
+	            rules : [String : String]) {
 		
 		// Initialize stored properties
 		self.angle = angle
@@ -34,6 +36,7 @@ public class LindenmayerSystem {
 		self.rule = rule
 		self.n = generations
 		self.colors = colors
+		self.rules = rules
 		self.word.append(axiom)   // The first word is the axiom
 		
 		// Apply the production rule
@@ -48,9 +51,10 @@ public class LindenmayerSystem {
 		self.axiom = system.axiom
 		self.rule = system.rule
 		self.n = system.n
+		self.rules = system.rules
 		self.word.append(axiom)   // The first word is the axiom
-		
-		// Apply the production rule
+//		
+//		// Apply the production rule
 		applyRules()
 	}
 	
@@ -67,17 +71,11 @@ public class LindenmayerSystem {
 				
 				// Inspect each character of existing word
 				for character in word[i - 1].characters {
-					
-					if character == "F" {
-						
-						// apply production rule, replace "old" F with new string
-						newWord.append(rule)
-						
+					if let charRule = rules[String(character)] {
+						newWord.append(charRule)
 					} else {
-						
 						// just copy what's in the existing word to the new word
 						newWord.append(character)
-						
 					}
 					
 				}
@@ -88,7 +86,8 @@ public class LindenmayerSystem {
 			}
 			
 		}
-		
+		print("Words:")
+		print(word)
 	}
 	
 }
