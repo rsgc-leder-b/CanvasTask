@@ -21,18 +21,6 @@ class Sketch : NSObject {
     let smallKochSnowflake : VisualizedLindenmayerSystem
     let mediumKochSnowflake : VisualizedLindenmayerSystem
 
-    var states : [systemState] = []
-    
-    struct systemState {
-        var x : Int
-        var y : Int
-        var angle : Degrees
-        init(x : Int, y : Int, angle : Degrees) {
-            self.y = y
-            self.x = x
-            self.angle = angle
-        }
-    }
     // This runs once, equivalent to setup() in Processing
     override init() {
         
@@ -76,12 +64,12 @@ class Sketch : NSObject {
     // Runs repeatedly, equivalent to draw() in Processing
     func draw() {
         
-        canvas.saveState()
+        //canvas.saveState()
         
         // Render the current system
-        canvas.renderAnimated(system: mediumKochSnowflake, generation: 2)
+        canvas.renderAnimated(systems: [smallKochSnowflake, mediumKochSnowflake], generations: [3, 3])
         
-        canvas.restoreState()
+        //canvas.restoreState()
         
     }
     
