@@ -9,23 +9,62 @@
 import Foundation
 
 class Sketch : NSObject {
-    
+
     // NOTE: Every sketch must contain an object of type Canvas named 'canvas'
     //       Therefore, the line immediately below must always be present.
     let canvas : EnhancedCanvas
     
     // Create the basic L-systems
     let kochSnowflake : LindenmayerSystem
-
+    
     // Create the visualizations of the snowflake
     let smallKochSnowflake : VisualizedLindenmayerSystem
     let mediumKochSnowflake : VisualizedLindenmayerSystem
+    
+    let tree : LindenmayerSystem
+    let showTree3 : VisualizedLindenmayerSystem
+    let showTree2 : VisualizedLindenmayerSystem
+    let showTree1 : VisualizedLindenmayerSystem
 
     // This runs once, equivalent to setup() in Processing
     override init() {
         
         // Create a new canvas
         canvas = EnhancedCanvas(width: 500, height: 500)
+        
+        tree = LindenmayerSystem(angle: 22,
+                                 axiom: "F",
+                                 generations: 5,
+                                 rules: ["F" : ["1FF-[2-F+F+F]+[3+F-F-F]"]])
+        
+        showTree1 = VisualizedLindenmayerSystem(with: tree,
+                                               length: 100,
+                                               reduction: 2,
+                                               x: 150,
+                                               y: 50,
+                                               direction: 90,
+                                               colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 50, b: 20),
+                                                        "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 85),
+                                                        "3" : LindenmayerSystem.Colour(h: 120, s: 95, b: 90)])
+        showTree2 = VisualizedLindenmayerSystem(with: tree,
+                                                length: 70,
+                                                reduction: 2,
+                                                x: 50,
+                                                y: 70,
+                                                direction: 90,
+                                                colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 50, b: 20),
+                                                         "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 85),
+                                                         "3" : LindenmayerSystem.Colour(h: 120, s: 95, b: 90)])
+        showTree3 = VisualizedLindenmayerSystem(with: tree,
+                                                length: 75,
+                                                reduction: 2,
+                                                x: 300,
+                                                y: 25,
+                                                direction: 90,
+                                                colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 50, b: 20),
+                                                         "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 85),
+                                                         "3" : LindenmayerSystem.Colour(h: 120, s: 95, b: 90)])
+        
         
         // Set up a Koch snowflake
         kochSnowflake = LindenmayerSystem(angle: 60,
@@ -57,7 +96,7 @@ class Sketch : NSObject {
                                                                    "3" : LindenmayerSystem.Colour(h: 170, s: 100, b: 100),
                                                                    "4" : LindenmayerSystem.Colour(h: 230, s: 100, b: 100)])
         // The frame rate can be adjusted; the default is 60 fps
-        canvas.framesPerSecond = 60
+        canvas.framesPerSecond = 300
         
     }
     
@@ -67,7 +106,7 @@ class Sketch : NSObject {
         //canvas.saveState()
         
         // Render the current system
-        canvas.renderAnimated(systems: [smallKochSnowflake, mediumKochSnowflake], generations: [3, 3])
+        canvas.renderAnimated(systems: [showTree1, showTree2, showTree3], generations: [4, 4, 4])
         
         //canvas.restoreState()
         
