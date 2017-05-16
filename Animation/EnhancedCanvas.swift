@@ -33,7 +33,7 @@ public class EnhancedCanvas : Canvas {
 		var i = 0
 		for system in systems {
 			// Verify that generation that was asked to be rendered actually exists
-			var generation = generations[i]
+			var generation = generations.count > i ? generations[i] : generations[generations.count-1]
 			if generation > system.n {
 				generation = system.n
 			}
