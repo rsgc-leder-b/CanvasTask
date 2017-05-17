@@ -31,6 +31,7 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     var currentAngle : Degrees
     var colorList : [String : LindenmayerSystem.Colour]
     var stateList = [systemState]()
+    //var thickness : Int
     
     public init(with providedSystem: LindenmayerSystem,
                 length: Float,

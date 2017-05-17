@@ -16,6 +16,7 @@
 		81EAC5A41D87DF52005DD91D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EAC5A31D87DF52005DD91D /* Helper.swift */; };
 		81F1943C1EABB91100832CA6 /* EnhancedCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F1943A1EABB91100832CA6 /* EnhancedCanvas.swift */; };
 		81F1943D1EABB91100832CA6 /* LindenmayerSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F1943B1EABB91100832CA6 /* LindenmayerSystem.swift */; };
+		C628042A1ECC77EC002E0692 /* ForestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62804291ECC77EC002E0692 /* ForestScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		81EAC5A31D87DF52005DD91D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		81F1943A1EABB91100832CA6 /* EnhancedCanvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancedCanvas.swift; sourceTree = "<group>"; usesTabs = 1; };
 		81F1943B1EABB91100832CA6 /* LindenmayerSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LindenmayerSystem.swift; sourceTree = "<group>"; usesTabs = 1; };
+		C62804291ECC77EC002E0692 /* ForestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForestScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				81064A0D1C130A10007ED524 /* Assets.xcassets */,
 				81064A0F1C130A10007ED524 /* Main.storyboard */,
 				81064A121C130A10007ED524 /* Info.plist */,
+				C62804291ECC77EC002E0692 /* ForestScene.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				81EAC5A41D87DF52005DD91D /* Helper.swift in Sources */,
 				81678C541EBA34D3006FB3B9 /* VisualizedLindenmayerSystem.swift in Sources */,
 				81F1943C1EABB91100832CA6 /* EnhancedCanvas.swift in Sources */,
+				C628042A1ECC77EC002E0692 /* ForestScene.swift in Sources */,
 				81064A1C1C132DA2007ED524 /* Sketch.swift in Sources */,
 				81064A0A1C130A10007ED524 /* AppDelegate.swift in Sources */,
 			);

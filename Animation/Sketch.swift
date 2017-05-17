@@ -14,13 +14,6 @@ class Sketch : NSObject {
     //       Therefore, the line immediately below must always be present.
     let canvas : EnhancedCanvas
     
-    // Create the basic L-systems
-    let kochSnowflake : LindenmayerSystem
-    
-    // Create the visualizations of the snowflake
-    let smallKochSnowflake : VisualizedLindenmayerSystem
-    let mediumKochSnowflake : VisualizedLindenmayerSystem
-    
     let tree : LindenmayerSystem
     var treeArray : [VisualizedLindenmayerSystem]
 
@@ -34,51 +27,23 @@ class Sketch : NSObject {
                                  generations: 5,
                                  rules: ["F" : ["1FF-[2-F+F+F]+[3+F-F-F]","1FF+[2+F-F-F]-[3-F+F+F]"]])
         treeArray = []
-       // random(from: 50, toButNotIncluding: 200)
+
         for _ in 0 ... 20 {
             treeArray.append(VisualizedLindenmayerSystem(with: tree,
-                                                         length: Float(random(from: 20, toButNotIncluding: 40)),
+                                                         length: Float(random(from: 30, toButNotIncluding: 50)),
                                                          reduction: 2,
                                                          x: Float(random(from: 25, toButNotIncluding: 475)),
                                                          y: Float(random(from: 0, toButNotIncluding: 400)),
                                                          direction: 90,
                                                          colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 50, b: 20),
-                                                                  "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 85),
+                                                                  "2" : LindenmayerSystem.Colour(h: 100, s: 100, b: 85),
                                                                   "3" : LindenmayerSystem.Colour(h: 120, s: 95, b: 90)]))
         }
         
-        // Set up a Koch snowflake
-        kochSnowflake = LindenmayerSystem(angle: 60,
-                                          axiom: "F++F++F",
-                                          generations: 3,
-                                          rules: ["F" : ["1F-2F++3F-4F"]])
-
-        // Visualize this as a small snowflake
-        smallKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
-                                                         length: 90,
-                                                         reduction: 3,
-                                                         x: 120,
-                                                         y: 175,
-                                                         direction: 0,
-                                                         colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100),
-                                                                  "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 100),
-                                                                  "3" : LindenmayerSystem.Colour(h: 170, s: 100, b: 100),
-                                                                  "4" : LindenmayerSystem.Colour(h: 230, s: 100, b: 100)])
-        
-        // Visualize this as a small snowflake
-        mediumKochSnowflake = VisualizedLindenmayerSystem(with: kochSnowflake,
-                                                          length: 270,
-                                                          reduction: 3,
-                                                          x: 150,
-                                                          y: 200,
-                                                          direction: 0,
-                                                          colors: ["1" : LindenmayerSystem.Colour(h: 50, s: 100, b: 100),
-                                                                   "2" : LindenmayerSystem.Colour(h: 110, s: 100, b: 100),
-                                                                   "3" : LindenmayerSystem.Colour(h: 170, s: 100, b: 100),
-                                                                   "4" : LindenmayerSystem.Colour(h: 230, s: 100, b: 100)])
         // The frame rate can be adjusted; the default is 60 fps
         canvas.framesPerSecond = 100
-        
+        canvas.fillColor = Color(hue: 10, saturation: 62, brightness: 26, alpha: 100)
+        canvas.drawRectangle(centreX: canvas.width/2, centreY: 175, width: canvas.width, height: 350)
     }
     
     // Runs repeatedly, equivalent to draw() in Processing
