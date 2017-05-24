@@ -1,0 +1,91 @@
+[
+<
+author:Helge von Koch
+description:Koch Snowflake
+angle:60
+axiom:F++F++F
+rules:
+{
+F=F-F++F-F
+}
+generations:3
+>
+direction:0
+length:180
+length_reduction:3
+thickness:9
+thickness_reduction:3
+x:50
+y:300
+]
+[
+<
+author:Athena Foo
+description:A tall reed-like form
+angle:10
+axiom:FX
+rules:
+{
+F=1/F-[1+F]F+[2-F]
+F=1/F-[1+F]F+[F]
+F=1/-[1-F]F+[2-F]
+X=1/F[3+FFF]F[1-F]
+}
+generations:5
+>
+colors:
+{
+1=134,72,100
+2=134,71,67
+3=155,49,38
+}
+direction:120
+length:9
+length_reduction:3
+x:400
+y:200
+]
+[
+<
+author:Athena Foo
+description:A generic plant-like form
+angle:10
+axiom:F
+rules:
+{
+F=1/F+F
+F=1/F-F
+F=2/F+++++F
+}
+generations:8
+>
+direction:0
+length:1000
+length_reduction:2
+x:100
+y:250
+]
+[
+<
+author:Helge von Koch
+description:Koch Construction #8
+angle:90
+axiom:A
+rules:
+{
+A=A+B+
+B=-A-B
+}
+generations:8
+>
+colors:
+{
+1=240,80,90
+2=0,80,90
+}
+direction:0
+length:1000
+length_reduction:2
+x:100
+y:250
+]

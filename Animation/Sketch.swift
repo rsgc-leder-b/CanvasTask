@@ -19,6 +19,8 @@ class Sketch : NSObject {
     let forestGenerator : ForestScene
     let forest : [VisualizedLindenmayerSystem]
     
+    let reader : LineReader
+    
     // This runs once, equivalent to setup() in Processing
     override init() {
         
