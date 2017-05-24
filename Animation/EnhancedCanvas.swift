@@ -2,31 +2,29 @@ import Foundation
 
 public class EnhancedCanvas : Canvas {
 	
-	public func render(system s : VisualizedLindenmayerSystem) {
+	/*public func render(system s : VisualizedLindenmayerSystem) {
 		
-		render(system: s, generation: s.n)
+		render(systems: s, generations: s.n)
 		
-	}
+	}*/
 	
-	public func render(system : VisualizedLindenmayerSystem, generation : Int) {
+	public func render(systems : [VisualizedLindenmayerSystem], generations : Int) {
 		
 		// Verify that generation that was asked to be rendered actually exists
-		var generation = generation
-		if generation > system.n {
-			generation = system.n
+		for system in systems {
+			var generation = generations
+			if generation > system.n {
+				generation = system.n
+			}
+			
+			// Change the line length
+			system.currentLength = Float( Double(system.initialLength) / pow(Double(system.reduction), Double(generation)) )
+			
+			// Render the word
+			for c in system.word[generation].characters {
+				interpret(character: c, forThis: system)
+			}
 		}
-		
-		// Change the line length
-		system.currentLength = Float( Double(system.initialLength) / pow(Double(system.reduction), Double(generation)) )
-		
-		// Render the word
-		self.saveState()
-		self.translate(byX: system.x, byY: system.y) // Move turtle to starting point
-		for c in system.word[generation].characters {
-			interpret(character: c, forThis: system)
-		}
-		self.restoreState()
-		
 	}
 	
 	public func renderAnimated(systems : [VisualizedLindenmayerSystem], generations : [Int]) {
@@ -43,7 +41,7 @@ public class EnhancedCanvas : Canvas {
 				
 				// Change the line length
 				system.currentLength = Float( Double(system.initialLength) / pow(Double(system.reduction), Double(generation)) )
-				
+				system.thickness = Float( Double(system.thickness) / pow(Double(system.tReduction), Double(generation)) )
 				// Move turtle to starting point
 				//self.translate(byX: system.x, byY: system.y) // Move turtle to starting point
 			}
@@ -68,6 +66,10 @@ public class EnhancedCanvas : Canvas {
 		}
 	}
 	func interpret(character : Character, forThis system : VisualizedLindenmayerSystem) {
+		
+		self.lineColor = Color(hue: system.currentColor.hue, saturation: system.currentColor.saturation, brightness: system.currentColor.brightness, alpha: 100)
+		self.defaultLineWidth = Int(system.thickness)
+		
 		// Interpret each character of the word
 		let newX = Float(CGFloat(system.x)+cos(CGFloat(M_PI)*system.currentAngle/180)*CGFloat(system.currentLength))
 		let newY = Float(CGFloat(system.y)+sin(CGFloat(M_PI)*system.currentAngle/180)*CGFloat(system.currentLength))
@@ -90,6 +92,7 @@ public class EnhancedCanvas : Canvas {
 			let unicodeValue = String(character).unicodeScalars[String(character).unicodeScalars.startIndex].value
 			if unicodeValue > 47 && unicodeValue < 58 {
 				if let currColour = system.colorList[String(character)] {
+					system.currentColor = currColour
 					self.lineColor = Color(hue: currColour.hue, saturation: currColour.saturation, brightness: currColour.brightness, alpha: 100)
 				}
 			} else if unicodeValue > 64 && unicodeValue < 91 { // Uppercase
@@ -101,7 +104,7 @@ public class EnhancedCanvas : Canvas {
 				// Go forward without drawing a line
 				system.x = newX
 				system.y = newY
-
+				
 			}
 			break
 		}
