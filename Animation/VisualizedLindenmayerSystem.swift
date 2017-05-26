@@ -34,7 +34,6 @@ public class VisualizedLindenmayerSystem : LindenmayerSystem {
     var currentColor : LindenmayerSystem.Colour
     var colorList : [String : LindenmayerSystem.Colour]
     var stateList = [systemState]()
-    //var thickness : Int
     
     public init(with providedSystem: LindenmayerSystem,
                 thickness: Float,

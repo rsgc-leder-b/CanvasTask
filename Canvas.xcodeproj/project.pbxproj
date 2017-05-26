@@ -19,6 +19,7 @@
 		C6220B411ED5BCB6006EA46F /* LineReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6220B401ED5BCB6006EA46F /* LineReader.swift */; };
 		C6220B431ED5BD27006EA46F /* l-systems.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6220B421ED5BD27006EA46F /* l-systems.txt */; };
 		C628042A1ECC77EC002E0692 /* ForestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62804291ECC77EC002E0692 /* ForestScene.swift */; };
+		C6400D681ED89FE80050AEF8 /* FileInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6400D671ED89FE80050AEF8 /* FileInterpreter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +29,7 @@
 		81064A0D1C130A10007ED524 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81064A101C130A10007ED524 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81064A121C130A10007ED524 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81064A1B1C132DA2007ED524 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
+		81064A1B1C132DA2007ED524 /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; usesTabs = 1; };
 		8134E7921C14CD5700EC4523 /* CanvasTestArea.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CanvasTestArea.playground; sourceTree = "<group>"; };
 		81678C531EBA34D3006FB3B9 /* VisualizedLindenmayerSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualizedLindenmayerSystem.swift; sourceTree = "<group>"; };
 		81EAC5A31D87DF52005DD91D /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		C6220B401ED5BCB6006EA46F /* LineReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineReader.swift; sourceTree = "<group>"; };
 		C6220B421ED5BD27006EA46F /* l-systems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "l-systems.txt"; sourceTree = "<group>"; };
 		C62804291ECC77EC002E0692 /* ForestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForestScene.swift; sourceTree = "<group>"; usesTabs = 1; };
+		C6400D671ED89FE80050AEF8 /* FileInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInterpreter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				C62804291ECC77EC002E0692 /* ForestScene.swift */,
 				C6220B401ED5BCB6006EA46F /* LineReader.swift */,
 				C6220B421ED5BD27006EA46F /* l-systems.txt */,
+				C6400D671ED89FE80050AEF8 /* FileInterpreter.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6400D681ED89FE80050AEF8 /* FileInterpreter.swift in Sources */,
 				81064A0C1C130A10007ED524 /* ViewController.swift in Sources */,
 				81F1943D1EABB91100832CA6 /* LindenmayerSystem.swift in Sources */,
 				81EAC5A41D87DF52005DD91D /* Helper.swift in Sources */,
