@@ -38,7 +38,7 @@
 		C6220B401ED5BCB6006EA46F /* LineReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineReader.swift; sourceTree = "<group>"; };
 		C6220B421ED5BD27006EA46F /* l-systems.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "l-systems.txt"; sourceTree = "<group>"; };
 		C62804291ECC77EC002E0692 /* ForestScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForestScene.swift; sourceTree = "<group>"; usesTabs = 1; };
-		C6400D671ED89FE80050AEF8 /* FileInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInterpreter.swift; sourceTree = "<group>"; };
+		C6400D671ED89FE80050AEF8 /* FileInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInterpreter.swift; sourceTree = "<group>"; usesTabs = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

@@ -33,18 +33,17 @@ class Sketch : NSObject {
 		canvas.drawRectangle(centreX: canvas.width/2, centreY: canvas.height/2, width: canvas.width, height: canvas.width)
 		canvas.fillColor = Color(hue: 10, saturation: 62, brightness: 46, alpha: 100)
 		canvas.drawRectangle(centreX: canvas.width/2, centreY: 175, width: canvas.width, height: 350)
-		forest = forestGenerator.generateForest()
+		let filereader : FileInterpreter = FileInterpreter(path: "/Users/student/Desktop/l-systems.txt")
+		forest = filereader.interpret()//forestGenerator.generateForest()
 	}
 	
 	// Runs repeatedly, equivalent to draw() in Processing
 	func draw() {
-		
 		// Render the current system
-		if run {
-			canvas.render/*Animated*/(systems: forest, generations: 4)
-			run = false
-		}
-		
+		//if run {
+			canvas.renderAnimated(systems: forest, generations: [4])
+		//	run = false
+		//}
 	}
 	
 	// Respond to the mouseDown event
