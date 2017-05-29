@@ -71,8 +71,17 @@ class FileInterpreter {
 					var rule = data[_index].components(separatedBy: "\n")[0].components(separatedBy: "=")
 					print(rule)
 					print(rule[1].components(separatedBy: "/"))
-					if 
-					rules[rule[0].characters[rule[0].characters.startIndex]]?.append(rule[1])
+					if rule[1].components(separatedBy: "/").count == 2 {
+						let indexCount = Int(rule[1].components(separatedBy: "/")[0])!
+						for _ in 1...indexCount {
+							if rules[rule[0].characters[rule[0].characters.startIndex]] == nil {
+								rules[rule[0].characters[rule[0].characters.startIndex]] = []
+							}
+							rules[rule[0].characters[rule[0].characters.startIndex]]?.append(rule[1].components(separatedBy: "/")[1])
+						}
+					} else {
+						rules[rule[0].characters[rule[0].characters.startIndex]] = [rule[1]]
+					}
 					_index += 1
 				}
 				break
